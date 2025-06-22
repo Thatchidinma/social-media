@@ -11,6 +11,7 @@ type PageProps = {
 
 const Content = ({ slug }: PageProps) => {
     const router = useRouter()
+    console.log(slug)
     return (
         <div className='h-[calc(100vh_-_91px)] overflow-scroll p-8 font-[family-name:var(--font-geist-sans)] flex flex-col gap-8'>
             <div onClick={()=> router.back()} className="flex gap-2 items-center cursor-pointer text-[#4F46E5] font-semibold">
