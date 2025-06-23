@@ -3,7 +3,6 @@ import React from "react";
 import Button from "./Button";
 import { usePathname } from "next/navigation";
 import Logo from "./icons/Logo";
-import { SearchNormal } from "iconsax-react";
 import SearchBar from "./SearchBar";
 import { ThemeToggler } from "./ThemeToggler";
 
@@ -24,7 +23,6 @@ const NavBar = () => {
                         <SearchBar />
                     </div>}
                 <div className="flex items-center gap-2 py-2">
-                    <SearchNormal size={24} color="currentColor" className="md:hidden" />
                     <ThemeToggler />
                     <Button variant="primary" text={'Sign In'} />
                 </div>

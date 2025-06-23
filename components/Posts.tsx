@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import LoadingIcon from './icons/LoadingIcon'
 import Skeleton from './Skeleton'
 import { useFilter } from '@/context/searchContext'
+import SearchBar from './SearchBar'
 
 
 const Posts = () => {
@@ -24,6 +25,7 @@ const Posts = () => {
     return (
         <div className="w-full flex flex-col gap-8">
             <Categories />
+            <SearchBar className=' sm:hidden m-auto'/>
             <div className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start lg:max-w-[800] m-auto ">
                 {isLoading ? <Skeleton /> : <>
                     {data?.pages.flat().filter(
