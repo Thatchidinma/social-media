@@ -1,9 +1,9 @@
 'use client'
-import LoadingIcon from "@/components/icons/LoadingIcon";
 import { FilterProvider } from "@/context/searchContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Suspense } from "react";
+import Loading from "./loading";
 
 export function Providers({
   children,
@@ -12,7 +12,7 @@ export function Providers({
 
   return (
     <ThemeProvider>
-      <Suspense fallback={<LoadingIcon/>}>
+      <Suspense fallback={<Loading/>}>
         <FilterProvider>
           <QueryClientProvider client={queryClient}>
             {children}
