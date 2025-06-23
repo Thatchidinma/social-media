@@ -13,8 +13,8 @@ const Sidebar = () => {
       <div
         className={`hidden md:block h-screen lg:w-[250px] text-grey-500 transition-transform transform  pt-8  border-r border-neutral-300 dark:border-neutral-700 `}
       >
-        <div className="flex justify-between px-6 pb-6">
-            <Logo/>
+        <div className="flex lg:px-6 pb-12 ">
+            <Logo className="w-10 h-10 m-auto lg:m-0"/>
         </div>
         <div className="flex flex-col h-[calc(100vh_-_90px)] justify-between">
           <div className="flex flex-col gap-1 px-2">
