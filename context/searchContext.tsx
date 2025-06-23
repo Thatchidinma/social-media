@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import useQueryParams from "@/hooks/useQueryParams";
+import React, { useCallback, useState } from "react";
+
+export type categoryEnum = "Educative" | "Food" | "Tech";
 export interface Filter {
   search: string;
   setSearch: (sort: string) => void;
+  category?: categoryEnum
+  setCategory: (sort: categoryEnum) => void;
+  clear: () => void;
 }
 
 const FilterContext = React.createContext<Filter>(
@@ -21,19 +27,36 @@ export const useFilter = () => {
 export const FilterProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
+  const queryParams = useQueryParams();
 
   const [searchState, setSearchState] = useState<string>('');
+  const [categoryState, setCategoryState] = useState<categoryEnum | undefined>((queryParams.get("category") as categoryEnum) ?? undefined,
+  )
 
   const setSearch = (search: string) => {
     setSearchState(search);
   };
 
+  const setCategory = (category: categoryEnum) => {
+    setCategoryState(category)
+    queryParams.set({ category });
+  }
+
+  const clear = useCallback(() => {
+    queryParams.set({
+      category: '',
+    });
+    setCategoryState(undefined);
+  }, [queryParams]);
 
   return (
     <FilterContext.Provider
       value={{
         search: searchState,
         setSearch,
+        category: categoryState,
+        setCategory,
+        clear
       }}
     >
       {children}

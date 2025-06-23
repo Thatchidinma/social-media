@@ -13,7 +13,7 @@ import SearchBar from './SearchBar'
 const Posts = () => {
     const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useGetPosts()
     const { ref, inView } = useInView();
-    const { search } = useFilter()
+    const { search, category } = useFilter()
 
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const Posts = () => {
     return (
         <div className="w-full flex flex-col gap-8">
             <Categories />
-            <SearchBar className=' sm:hidden m-auto'/>
+            <SearchBar className=' sm:hidden m-auto' />
             <div className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start lg:max-w-[800] m-auto ">
                 {isLoading ? <Skeleton /> : <>
                     {data?.pages.flat().filter(
@@ -36,6 +36,19 @@ const Posts = () => {
                             String(post.body)
                                 ?.toLowerCase()
                                 .includes(search.toLowerCase()),
+                    ).filter(
+                        (post) => {
+                            if (category) {
+                                return String(post.title)
+                                    ?.toLowerCase()
+                                    .includes(category.toLowerCase()) ||
+                                    String(post.body)
+                                        ?.toLowerCase()
+                                        .includes(category.toLowerCase())
+                            } else {
+                                return true
+                            }
+                        }
                     ).map((item, index) => {
                         return (
                             <PostCard key={index} title={item.title} body={item.body} id={String(item.id)} />
