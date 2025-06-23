@@ -15,7 +15,7 @@ const Skeleton = () => {
                             <p className="h-4 w-6 skeleton rounded-3xl"></p>
                         </div>
                     </div>
-                    <p className="h-4 w-full lg:max-w-[800] skeleton rounded-3xl lg:w-[300px]"></p>
+                    <p className="h-4 w-[200px] lg:max-w-[800] skeleton rounded-3xl lg:w-[300px]"></p>
                 </div>
             </div>
         </div>

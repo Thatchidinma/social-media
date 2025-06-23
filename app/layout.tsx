@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata  = {
+export const metadata: Metadata = {
   title: "Social Media Feed Page",
   description: "Browse the latest curated posts on our dynamic feed.",
   openGraph: {
@@ -26,7 +26,7 @@ export const metadata: Metadata  = {
     locale: "en_US",
     type: "website",
   },
-    icons: {
+  icons: {
     icon: "/favicon.ico",
   },
 };
@@ -38,6 +38,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            document.documentElement.classList.toggle(
+          "dark",
+          localStorage.theme === "dark" ||
+          (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+          );
+          `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

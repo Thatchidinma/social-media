@@ -4,6 +4,8 @@ import Button from "./Button";
 import { usePathname } from "next/navigation";
 import Logo from "./icons/Logo";
 import { SearchNormal } from "iconsax-react";
+import SearchBar from "./SearchBar";
+import { ThemeToggler } from "./ThemeToggler";
 
 const NavBar = () => {
     const pathName = usePathname()
@@ -17,13 +19,13 @@ const NavBar = () => {
                         <Logo className="w-10 h-10" />
                     </div>
                 </div>
-                {pathName === "/" && 
-                <div className="hidden md:block">
-                    <input type="search" className="w-[300px] lg:w-[500px] outline-none border border-neutral-500 p-4 rounded-2xl" placeholder="search feed" />
-                </div>}
+                {pathName === "/" &&
+                    <div className="hidden md:block">
+                        <SearchBar />
+                    </div>}
                 <div className="flex items-center gap-2 py-2">
-                    <SearchNormal size={24} color="currentColor" className="md:hidden"/>
-                    <Button className="hidden lg:flex" text={'Sign Up'} />
+                    <SearchNormal size={24} color="currentColor" className="md:hidden" />
+                    <ThemeToggler />
                     <Button variant="primary" text={'Sign In'} />
                 </div>
             </nav>
