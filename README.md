@@ -1,36 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+A simple dynamic content feed application built with **Next.js**, **TailwindCSS** and **React Query**. 
+---
 
-First, run the development server:
+## 🚀 Live Demo
+
+**🔗 [Live Site (Deployed on Vercel)](https://social-media-thatchidinmas-projects.vercel.app/)**
+
+
+
+## 📸 Screenshots
+
+| Feed Page (Desktop)                       | Detail Page                                   |
+| ----------------------------------------- | --------------------------------------------- |
+| ![Feed Page](./public/ScreenShot.png) | ![Detail Page](./public/ScreenShot2.png) |
+
+---
+
+## 📦 Tech Stack
+
+* **Next.js** (App Router)
+* **React 18+**
+* **TypeScript**
+* **React Query (TanStack)** – for data fetching, caching
+* **Tailwind CSS** – responsive UI styling
+* **React Intersection Observer** – infinite scrolling
+* **Mock API (JSONPlaceholder + Manual Filtering)**
+* **Jest + Testing Library** – unit & integration tests
+
+---
+
+## 🧹 Features
+
+### ✅ Core Functionality
+
+* **Feed Page**
+
+  * Paginated feed with infinite scroll
+  * Display: Title, description snippet, author, date, thumbnail
+* **Detail Page**
+
+  * Dynamic route `/[slug]`
+  * Detailed post content with SEO metadata
+* **Search & Filter**
+
+  * Filter posts by category (manually tagged)
+  * Search by title/description
+  * Preserves filters in URL
+
+---
+
+### 🧠 Technical Details
+
+#### 🌐 Routing & SEO
+
+* SEO meta tags per page (title, description)
+* Dynamic routing using `app/` directory
+
+#### ♻️ State Management
+
+* React Query for fetching & caching
+* Infinite scroll with proper loading & error states
+
+#### 📱 Responsive UI
+
+* Sidebar layout for desktop
+* NavBar only for mobile
+<!-- * Theme toggle: Light/Dark Mode -->
+
+<!-- #### 🧪 Testing
+
+* Unit tests for:
+
+  * FeedCard
+  * SearchBar
+* Integration test:
+
+  * Search & filter interaction flow
+
+--- -->
+
+## 🛠️ Installation & Setup Instructions
+
+Follow these steps to run the project locally on your machine:
+
+### 1. **Clone the Repository**
+
+```bash
+git clone https://github.com/Thatchidinma/social-media.git
+cd social-media
+```
+
+### 2. **Install Dependencies**
+
+Ensure you have **Node.js (v16+)** and **npm** or **yarn** installed.
+
+```bash
+# Using npm
+npm install
+
+# Or using yarn
+yarn install
+```
+
+
+### 3. **Run the Development Server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open your browser at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**[http://localhost:3000](http://localhost:3000)**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. **Build for Production**
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 6. **Run Tests**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Run unit and integration tests
+npm run test
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Watch mode
+npm run test:watch
+```
 
-## Deploy on Vercel
+### 7. **Deploy the App**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy easily using **Vercel**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+connect your GitHub repository to [vercel.com](https://vercel.com/) for CI/CD deployment.
+
+---
+
+## 🛠️ Mock API Strategy
+
+* **JSONPlaceholder** used for base data
+* Simulated categories by assigning them manually in UI
+
+---
+
+## ✨ Bonus Features
+
+* ✅ Dark/Light mode toggle
+* ✅ Responsive sidebar for large screens
+* ✅ URL params handling for filters & pagination
+<!-- * ✅ Transition animations (Framer Motion) -->
+* ✅ Deployed to **Vercel**
