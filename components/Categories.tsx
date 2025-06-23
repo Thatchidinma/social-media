@@ -6,7 +6,7 @@ const Categories = () => {
   const { category, setCategory, clear } = useFilter()
   const Categories = ['Educative', 'Food', 'Tech']
   return (
-    <div className='w-full flex gap-4 overflow-x-scroll'>
+    <div className='w-[300px] md:w-[500px] lg:w-[700px] xl:w-[1000px] m-auto flex gap-4 overflow-x-scroll'>
       {[...Categories].map((current, index) => {
         return (
           <div key={index} onClick={() => setCategory(current as categoryEnum)}
